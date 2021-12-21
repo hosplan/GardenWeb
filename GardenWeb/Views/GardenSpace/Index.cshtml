@@ -4,19 +4,19 @@
     }
 </style>
 <div class="container">
-    <div class="row">
+    <div class="row mb-3">
         <div class="col-6 p-2">
             <div class="card shadow h-100 py-2">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="fw-bold mb-1">
-                                나의 Space
+                                나의 Space 참여 인원
                             </div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">13</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">137</div>
                         </div>
                         <div class="col-auto">
-                            <i class="bi-calendar fs-2 text-gray-300"></i>
+                            <i class="bi-people-fill fs-2 text-gray-300"></i>
                         </div>
                     </div>
                 </div>
@@ -31,10 +31,10 @@
                             <div class="fw-bold mb-1">
                                 수용 가능 인원
                             </div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">40,000</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">13</div>
                         </div>
                         <div class="col-auto">
-                            <i class="bi-currency-dollar fs-2 text-gray-300"></i>
+                            <i class="bi-person-plus-fill fs-2 text-gray-300"></i>
                         </div>
                     </div>
                 </div>
@@ -42,43 +42,76 @@
         </div>
       
     </div>
-    <div class="row mb-3">        
-          <div class="col-auto">
-            <button class="btn btn-link btn-md" type="button">
-                <i class="bi-envelope-fill text-success"></i>
-            </button>            
-        </div>
+    <div class="row mb-3">
+
         <div class="col-auto">
-             <button class="btn btn-link btn-md" type="button">
+            <button class="btn btn-link btn-md p-0" type="button">
                 <i class="bi-nut-fill text-success"></i>
-            </button>     
+            </button>
         </div>
         <div class="col-auto">
-             <button class="btn btn-link btn-md" type="button">
+            <button class="btn btn-link btn-md p-0" type="button">
                 <i class="bi-plus-circle-fill text-primary"></i>
+            </button>
+        </div>
+        <div class="col-auto">
+            <button class="btn btn-link btn-md p-0" type="button">
+                <i class="bi-star-fill text-primary"></i>
+            </button>
+        </div>
+        <div class="col-auto">
+            <button class="btn btn-link btn-md p-0" type="button">
+                <i class="bi bi-search text-primary"></i>
             </button>
         </div>
     </div>
     <hr />
     <div class="row mb-3">
         <div class="col-sm-12 col-md-6 col-xl-4 p-2">
-            <div class="card border-5 add_space_card" style="height:396px;">
-                <img class="pt-5" src="~/img/undraw_add_post.svg" style="height:200px;" />
+            <div class="card border-5 add_space_card" style="min-height:490px;">
+                <img class="pt-5" src="~/img/undraw_add_post.svg" style="height:250px;" />
+                <br />
                 <br />
                 <h3 class="text-center fw-bolder text-secondary"><i class="bi bi-plus-circle-fill text-primary me-2"></i>작업 공간 만들기</h3>
             </div>
         </div>
         <div class="col-sm-12 col-md-6 col-xl-4 p-2">
-            <div class="card shadow">
+            <div class="card shadow" style="min-height:490px;">
+                <div class="card-header bg-primary">
+
+                    <span class="badge me-2">2021-12-15 ~ 2021-12-24</span>
+
+                    <button type="button" class="btn btn-link btn-xs p-0 me-2 float-end">
+                        <i class="bi bi-trash-fill text-white"></i>
+                    </button>
+                    <button type="button" class="btn btn-link btn-xs p-0 me-2 float-end">
+                        <i class="bi bi-brush-fill text-white"></i>
+                    </button>
+                    <button type="button" class="btn btn-link btn-xs p-0 me-2 float-end">
+                        <i class="bi-envelope-fill text-white"></i>
+                    </button>
+                    <button type="button" class="btn btn-link btn-xs p-0 me-2 float-end">
+                        <i class="bi-eye text-white"></i>
+                    </button>
+
+                </div>
                 <img src="~/img/fondue.jpg" class="card-img-top" style="height:200px;" />
                 <div class="card-body">
-                    <h5 class="card-title fw-bold" style="color: #479f76">계피맛 퐁듀</h5>
+                    <h5 class="card-title fw-bold w-100" style="color: #479f76">
+                        계피맛 퐁듀
+                        <button type="button" class="btn btn-link btn-xs p-0 me-1">
+                            <i class="bi bi-star text-secondary"></i>
+                        </button>
+
+                    </h5>
                     <p class="card-text">
                         계피맛 퐁듀를 좋아하는
                         사람들의 모임
                     </p>
+                    <span class="badge bg-primary me-2"><i class="bi-tag-fill text-white me-2"></i>학원</span>
+
                 </div>
-                <div class="card-footer">       
+                <div class="card-footer">
                     <div class="row mt-1 mb-2">
 
                         <div class="col-auto m-auto mt-2 mb-2">
@@ -87,6 +120,39 @@
                             <img src="~/img/example.jpg" class="card-img-top" style="height:40px; width:40px; border-radius: 100%;" />
                         </div>
                         <small class="col-12 text-center">3명 참가중</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-12 col-md-6 col-xl-4 p-2">
+            <div class="card" style="min-height:490px;">
+                <div class="card-header bg-warning fw-bolder text-white">
+                    <span class="badge me-2">2021-12-01 ~ 2021-12-22</span>
+                </div>
+                <img src="~/img/hamburg.jpg" class="card-img-top" style="height:200px;" />
+                <div class="card-body">
+                    <h5 class="card-title fw-bold w-100" style="color: #479f76">
+                        아치형 다리 프로젝트
+                        <button type="button" class="btn btn-link btn-xs p-0 me-1">
+                            <i class="bi bi-star-fill text-secondary"></i>
+                        </button>
+
+                    </h5>
+                    <p class="card-text">
+                        계피맛 퐁듀를 좋아하는
+                        사람들의 모임
+                    </p>
+                    <span class="badge bg-warning me-2"><i class="bi-tag-fill text-white me-2"></i>프로젝트</span>
+
+                </div>
+                <div class="card-footer">
+                    <div class="row mt-1 mb-2">
+
+                        <h3 class="text-center">해당 프로젝트는 완료 되었어요.</h3>
+                        <br />
+                        <br />
+                        <small class="text-center">2021-12-22</small>
                     </div>
                 </div>
             </div>
