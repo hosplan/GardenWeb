@@ -1,0 +1,66 @@
+﻿<div class="container" style="height:100%;">
+    <div class="row mb-5">
+        <div class="col-12">
+            <h3 class="fw-bold mb-3">
+                <i class="bi-person-fill me-2 text-info"></i>
+                내정보
+            </h3>
+
+            <div class="row">
+                <div class="col-lg-4 col-sm-12 mb-2">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row mb-2">
+                                <div class="col-12" id="login_user_img">
+                                   
+                                </div>
+                            </div>
+                            <form id="img_upload_form" enctype="multipart/form-data">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <input class="form-control" type="file" name="File" onchange="FileUpload(this)"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <output name="result"></output>
+                                </div>
+                            </form>                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-8 col-sm-12 mb-2">
+                    <div class="card">
+                        <div class="card-body">
+                            <form id="user_info_form">
+                                <div class="row" id="gUser_info_row">
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-5">
+        <div class="col-12">
+            <h3 class="fw-bold mb-3">
+                <i class="bi-tree-fill me-2 text-info"></i>
+                현재 활동중인 플레이스
+            </h3>
+            <div class="row">
+                <div class="col-12">                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/js/gardenUserDetail.js"></script>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+        GetUserInfo();
+    });   
+</script>

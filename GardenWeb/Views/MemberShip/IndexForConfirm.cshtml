@@ -1,0 +1,89 @@
+﻿@page
+@model GardenWeb.Models.GardenUser
+@{
+    Layout = null;
+}
+<link href="~/vendor/fontawesome-free/css/all.css" rel="stylesheet" />
+<link href="~/css/sb-admin-2.css" rel="stylesheet" />
+<link href="~/js/sweetalert2/sweetalert2.bundle.css" rel="stylesheet" />
+<style>
+    body {
+        font-family: "IBMPlexSansKR-Regular"
+    }
+    .flex-container {
+        width: 100%;
+        height: 100vh;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -moz-box-align: center;
+        -ms-flex-align: center;
+        align-items: center; /* 수직 정렬 */
+
+        -webkit-box-pack: center;
+        -moz-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center; /* 수평 정렬 */
+    }   
+</style>
+
+<div class="flex-container">
+    <div class="card o-hidden border-0 shadow-lg" style="width:800px;">
+        <div class="card-body p-0">
+            <!-- Nested Row within Card Body -->
+            <div class="row p-5">
+                <div class="col-xl-12">
+                    <h2 class="text-info">Garden 이메일 인증하기</h2>
+                    <div class="form-group row mt-3">
+                        <div class="col-sm-12 col-xl-8 p-2">
+                            <input type="text" id="client_confirm_code" class="form-control form-control-user" placeholder="인증번호를 입력하세요."/>
+                        </div>
+                        <div class="col-sm-12 col-xl-4 p-2">
+                            <button type="button" id="email_check_btn" onclick="ConfirmAuthCode()" class="btn btn-success btn-user btn-block">
+                                @Html.Raw("인증하기")
+                            </button>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-12 col-xl-12">
+                            <small id="confirm_email" class="font-weight-bold text-primary"></small>
+                            <small class="font-weight-bold">이메일로 인증코드를 보냈어요.</small>
+                            
+                            <span class="badge badge-warning ml-2" id="timer_span">
+                                <small class="font-weight-bold" id="timer_text">
+                                    <i class="fas fa-clock"></i>
+                                </small>
+                            </span>
+                            <span class="ms-2" id="timer_reset">
+
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/vendor/jquery/jquery.js"></script>
+<script src="~/js/sweetalert2/sweetalert2.bundle.js"></script>
+<script src="~/vendor/bootstrap/js/bootstrap.js"></script>
+<script src="~/vendor/jquery-easing/jquery.easing.js"></script>
+<script src="~/js/sb-admin-2.js"></script>
+<script src="~/js/common.js"></script>
+<script src="~/defaultSetting.js"></script>
+<script src="~/js/confirmEmail.js"></script>
+<script src="~/js/signalr/dist/browser/signalr.js"></script>
+
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", async function () {
+        //await SetCookie('gardenToken');
+        TimerStart();
+        await GetValidationEmail();
+    });
+
+ 
+  
+</script>

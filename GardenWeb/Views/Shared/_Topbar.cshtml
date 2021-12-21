@@ -1,0 +1,67 @@
+﻿
+<nav class="navbar navbar-expand navbar-light topbar mb-4 static-top shadow" style="background-color: #198754">
+    <div class="container">
+        <label class="text-white fs-3 fw-bold">Garden</label>
+
+        <ul class="navbar-nav ml-auto">
+            <li class="m-3 text-white">
+                <a asp-action="Index" asp-controller="GardenSpace" class="btn btn-link position-relative btn-lg p-0 text-white" data-bs-toggle="tooltip" data-bs-placement="bottom" title="정원 둘러보기" type="button">
+                    <i class="bi-tree-fill"></i>
+                    <span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle">
+                        <span class="visually-hidden">New alerts</span>
+                    </span>
+                </a>
+            </li>
+            <li class="m-3 text-white" id="systemOnly">
+                <a asp-action="Index" asp-controller="BaseRootType" class="btn btn-link position-relative btn-lg p-0 text-white" data-bs-toggle="tooltip" data-bs-placement="bottom" title="타입 지정">
+                    <i class="bi-nut-fill"></i>
+                </a>
+            </li>
+
+            <li class="m-3 text-white">
+                <button class="btn btn-link position-relative btn-lg p-0 text-white" type="button">
+                    <i class="bi-archive-fill"></i>
+                </button>
+            </li>
+            <li class="m-3 text-white">
+                <button class="btn btn-link position-relative btn-lg p-0 text-white" type="button">
+                    <i class="bi-star-fill"></i>
+                    <span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle">
+                        <span class="visually-hidden">New alerts</span>
+                    </span>
+                </button>
+            </li>
+            <li class="m-3 text-white">
+                <button class="btn btn-link position-relative btn-lg p-0 text-white" type="button">
+                    <i class="bi-bell-fill"></i>
+                </button>
+            </li>
+            <li class="m-3 text-white">
+                <button class="btn btn-link position-relative btn-lg p-0 text-white" type="button">
+                    <i class="bi-envelope-fill"></i>
+                </button>
+            </li>
+            <li class="m-3 text-white">
+                <div class="btn-group">
+                    <button class="btn btn-link position-relative btn-lg p-0 text-white" id="dropdownMenuOffset" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false" type="button">
+                        <i class="bi-person-circle"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-lg-end">
+                        <li>
+                            <button class="dropdown-item" type="button" onclick="Logout();">
+                                <i class="bi-x-circle-fill me-2" style="color: #198754"></i>로그 아웃
+                            </button>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/GardenUser/Detail" id="a_user_info">
+                                <i class="bi-person-badge-fill me-2" style="color: #198754"></i>내 정보
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+               
+            </li>
+        </ul>
+    </div>
+</nav>
+
