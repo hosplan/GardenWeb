@@ -1,6 +1,9 @@
 ﻿<style>
-    .add_space_card:hover{
+    .add_space_card:hover {
         box-shadow: 0 0 11px rgba(33,33,33,.2);
+    }
+    .garden_space_card:hover {
+        box-shadow: 0 0 11px rgba(33,33,33,.7);
     }
 </style>
 <div class="container">
@@ -40,7 +43,7 @@
                 </div>
             </div>
         </div>
-      
+
     </div>
     <div class="row mb-3">
 
@@ -50,7 +53,7 @@
             </button>
         </div>
         <div class="col-auto">
-            <button class="btn btn-link btn-md p-0" type="button">
+            <button class="btn btn-link btn-md p-0" onclick="RenderCreateModal()" data-bs-toggle="modal" data-bs-target="#createGardenSpaceModal" type="button">
                 <i class="bi-plus-circle-fill text-primary"></i>
             </button>
         </div>
@@ -68,7 +71,7 @@
     <hr />
     <div class="row mb-3">
         <div class="col-sm-12 col-md-6 col-xl-4 p-2">
-            <div class="card border-5 add_space_card" style="min-height:490px;">
+            <div class="card border-5 add_space_card" onclick="RenderCreateModal()" data-bs-toggle="modal" data-bs-target="#createGardenSpaceModal" style="min-height:490px;">
                 <img class="pt-5" src="~/img/undraw_add_post.svg" style="height:250px;" />
                 <br />
                 <br />
@@ -76,7 +79,7 @@
             </div>
         </div>
         <div class="col-sm-12 col-md-6 col-xl-4 p-2">
-            <div class="card shadow" style="min-height:490px;">
+            <div class="card garden_space_card" style="min-height:490px;">
                 <div class="card-header bg-primary">
 
                     <span class="badge me-2">2021-12-15 ~ 2021-12-24</span>
@@ -91,7 +94,7 @@
                         <i class="bi-envelope-fill text-white"></i>
                     </button>
                     <button type="button" class="btn btn-link btn-xs p-0 me-2 float-end">
-                        <i class="bi-eye text-white"></i>
+                        <i class="bi-eye-fill text-white"></i>
                     </button>
 
                 </div>
@@ -126,7 +129,7 @@
         </div>
 
         <div class="col-sm-12 col-md-6 col-xl-4 p-2">
-            <div class="card" style="min-height:490px;">
+            <div class="card garden_space_card" onclick="DetailGardenSpace();" style="min-height:490px;">
                 <div class="card-header bg-warning fw-bolder text-white">
                     <span class="badge me-2">2021-12-01 ~ 2021-12-22</span>
                 </div>
@@ -159,3 +162,5 @@
         </div>
     </div>
 </div>
+<partial name="_Modal.cshtml" />
+<script src="~/js/gardenSpace.js"></script>
