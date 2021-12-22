@@ -1,4 +1,39 @@
-﻿//GardenSpace - 워크스페이스 생성창 열기
+﻿//GardenSpace - 워크스페이스 생성
+async function CreateGardenSpace() {
+    fetch(Object.values(baseTypeHost())[0] + '/garden_space', {
+        method: 'POST',
+        mode: 'cors',
+        cache: 'no-cache',
+        credentials: 'include',
+        body: await GenerateGardenSpaceForm()
+    }).then(async function (response) {
+        let jsonValue = await response.json();
+        if (jsonValue.token == true) {
+            location.reload();
+        }
+        else {
+            AlertMessage(jsonValue.data);
+        }
+    });
+
+}
+
+//GardenSpace Form 생성
+function GenerateGardenSpaceForm() {
+    let gardenSpaceForm = new FormData();
+
+    gardenSpaceForm('Name', document.getElementById('garden_space_name').value);
+    gardenSpaceForm('Description', document.getElementById('garden_space_name').value);
+    gardenSpaceForm('BranchId', document.getElementById('garden_space_branch').value);
+    gardenSpaceForm('PlanStartDate', document.getElementById('garden_space_plan_start_date').value);
+    gardenSpaceForm('PlanEndDate', document.getElementById('garden_space_plan_end_date').value);
+    gardenSpaceForm('StartDate', document.getElementById('garden_space_start_date').value);
+    gardenSpaceForm('EndDate', document.getElementById('garden_space_end_date').value);
+
+    return gardenSpaceForm;
+}
+
+//GardenSpace - 워크스페이스 생성창 열기
 function RenderCreateModal() {
     //모달 타이틀
     let modalTitle = '<i class="bi bi-plus-circle-fill text-primary me-2"></i>';
@@ -15,26 +50,26 @@ function RenderCreateModal() {
     modalBody += '<div class="mb-3 row">';
     modalBody += '<label class="col-sm-2 col-form-label fw-bold text-danger">* 이름</label>';
     modalBody += '<div class="col-sm-10">';
-    modalBody += '<input type="text" class="form-control" id="baseRootType_desc" />';
+    modalBody += '<input type="text" class="form-control" id="garden_space_name" />';
     modalBody += '</div>';
     modalBody += '</div>';
     //설명
     modalBody += '<div class="mb-3 row">';
     modalBody += '<label class="col-sm-2 col-form-label fw-bold">설명</label>';
     modalBody += '<div class="col-sm-10">';
-    modalBody += '<input type="text" class="form-control" id="baseRootType_desc" />';
+    modalBody += '<input type="text" class="form-control" id="garden_space_desc" />';
     modalBody += '</div>';
     modalBody += '</div>';
     //작업종류
     modalBody += '<div class="mb-3 row">';
     modalBody += '<label class="col-sm-2 col-form-label fw-bold text-danger">* 작업 종류</label>';
     modalBody += '<div class="col-sm-5">';
-    modalBody += '<select class="form-control">';
+    modalBody += '<select class="form-control" id="garden_space_root">';
     modalBody += '<option checked>대분류</option>';
     modalBody += '</select>';
     modalBody += '</div>';
     modalBody += '<div class="col-sm-5">';
-    modalBody += '<select class="form-control">';
+    modalBody += '<select class="form-control" id="garden_space_branch">';
     modalBody += '<option checked>소분류</option>';
     modalBody += '</select>';
     modalBody += '</div>';
@@ -52,11 +87,11 @@ function RenderCreateModal() {
     modalBody += '<div class="mb-3 row">';
     modalBody += '<label class="col-sm-2 col-form-label fw-bold">계획 시작 날짜</label>';
     modalBody += '<div class="col-sm-4">';
-    modalBody += '<input type="Date" class="form-control" id="baseRootType_desc" />';
+    modalBody += '<input type="Date" class="form-control" id="garden_space_plan_start_date" />';
     modalBody += '</div>';
     modalBody += '<label class="col-sm-2 col-form-label fw-bold">계획 종료 날짜</label>';
     modalBody += '<div class="col-sm-4">';
-    modalBody += '<input type="Date" class="form-control" id="baseRootType_desc" />';
+    modalBody += '<input type="Date" class="form-control" id="garden_space_plan_end_date" />';
     modalBody += '</div>';
     modalBody += '</div>';
 
@@ -64,18 +99,18 @@ function RenderCreateModal() {
     modalBody += '<div class="mb-3 row">';
     modalBody += '<label class="col-sm-2 col-form-label fw-bold">시작 날짜</label>';
     modalBody += '<div class="col-sm-4">';
-    modalBody += '<input type="Date" class="form-control" id="baseRootType_desc" />';
+    modalBody += '<input type="Date" class="form-control" id="garden_space_start_date" />';
     modalBody += '</div>';
     modalBody += '<label class="col-sm-2 col-form-label fw-bold">종료 날짜</label>';
     modalBody += '<div class="col-sm-4">';
-    modalBody += '<input type="Date" class="form-control" id="baseRootType_desc" />';
+    modalBody += '<input type="Date" class="form-control" id="garden_space_end_date" />';
     modalBody += '</div>';
     modalBody += '</div>';
 
     document.getElementById('modal_body').innerHTML = modalBody;
 
     let modalFooter = '<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>';
-    modalFooter += '<button type="button" class="btn btn-primary" onclick="UpdateBaseRootType()" data-bs-dismiss="modal">생성</button>';
+    modalFooter += '<button type="button" class="btn btn-primary" onclick="CreateGardenSpace()" data-bs-dismiss="modal">생성</button>';
 
     document.getElementById('modal_footer').innerHTML = modalFooter;
 }

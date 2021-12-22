@@ -14,5 +14,10 @@ namespace GardenWeb.Controllers
         {
             return View();
         }
+
+        public IActionResult IndexForGardenBaseType()
+        {
+            return View();
+        }
     }
 }
