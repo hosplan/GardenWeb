@@ -1,0 +1,285 @@
+﻿
+<div class="container">
+    <div class="row mb-3">
+        <div class="col-6">
+            <h2 class="garden_space_title">계피맛 퐁듀</h2>
+        </div>
+        <div class="col-6">
+            <button class="btn btn-link btn-md float-end p-0 ms-3"><i class="bi bi-trash-fill fs-3 text-danger"></i></button>
+            <button class="btn btn-link btn-md float-end p-0 ms-3"><i class="bi bi-brush-fill fs-3 text-success"></i></button>            
+            <button class="btn btn-link btn-md float-end p-0 ms-3"><i class="bi bi-nut-fill fs-3 text-warning"></i></button>
+        </div>
+    </div>   
+
+     <div class="row mb-3">
+        <div class="col-xs-6 col-sm-6 col-xl-3 p-2">
+            <div class="card shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="fw-bold mb-1">
+                                활동 인원
+                            </div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">137 / 150</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="bi-people-fill fs-2" style="color:#198754"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-6 col-sm-6 col-xl-3 p-2">
+            <div class="card shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="fw-bold mb-1">
+                                초대 현황
+                            </div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">13 / 57</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="bi-envelope-fill fs-2" style="color:#198754"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+         <div class="col-xs-6 col-sm-6 col-xl-3 p-2">
+            <div class="card shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="fw-bold mb-1">
+                                진행중인 Task
+                            </div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">13</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="bi-play-circle-fill fs-2" style="color:#198754"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+         <div class="col-xs-6 col-sm-6 col-xl-3 p-2">
+            <div class="card shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="fw-bold mb-1">
+                                이벤트
+                            </div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">13</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="bi bi-bell-fill fs-2" style="color:#198754"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-1">
+        <div class="col-sm-12 col-md-6 col-xl-4 p-2">
+             <div class="card shadow">
+                <div class="card-body">
+                    <div class="row mb-2">
+                        <div class="col-12" id="login_user_img" style="min-height:300px;">
+                                   
+                        </div>
+                    </div>
+                    <form id="img_upload_form" enctype="multipart/form-data">
+                        <div class="row">
+                            <div class="col-12 border-top pt-3">
+                                <input class="form-control" type="file" name="File" onchange="FileUpload(this)"/>
+                            </div>
+                        </div>
+                    </form>                            
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-sm-12 col-md-6 col-xl-8 p-2">
+            <div class="card shadow" style="min-height:397px;">
+                <div class="card-body">
+                    <div class="row mb-2">
+                        <label class="col-sm-2 col-form-label fw-bold text-danger">생성자 닉네임</label>
+                        <div class="col-sm-10">
+                            <input type="text" value="고고한" class="form-control-plaintext" disabled/>
+                        </div>
+                    </div>
+
+                    <div class="row mb-2">
+                        <label class="col-sm-2 col-form-label fw-bold text-danger">생성일자</label>
+                        <div class="col-sm-10">
+                            <input type="text" value="2021-12-22" class="form-control-plaintext" disabled/>
+                        </div>
+                    </div>
+
+                    <div class="row mb-2">
+                        <label class="col-sm-2 col-form-label fw-bold text-danger">타입</label>
+                        <div class="col-sm-10">
+                            <input type="text" value="음악학원" class="form-control-plaintext" disabled/>
+                        </div>
+                    </div>
+
+                    <div class="row mb-2">
+                        <label class="col-sm-2 col-form-label fw-bold text-danger">공개여부</label>
+                        <div class="col-sm-10">
+                            <input type="text" value="비공개" class="form-control-plaintext" disabled/>
+                        </div>
+                    </div>
+
+                     <div class="row mb-2">
+                        <label class="col-sm-2 col-form-label fw-bold text-danger">초대로만 받기</label>
+                        <div class="col-sm-10">
+                            <input type="text" value="true" class="form-control-plaintext" disabled/>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row mb-2">
+                        <label class="col-sm-2 col-form-label fw-bold text-danger">계획 시작날짜</label>
+                        <div class="col-sm-4">
+                            <input type="text" value="없음" class="form-control-plaintext" disabled/>
+                        </div>
+
+                         <label class="col-sm-2 col-form-label fw-bold text-danger">계획 종료날짜</label>
+                        <div class="col-sm-4">
+                            <input type="text" value="없음" class="form-control-plaintext" disabled/>
+                        </div>
+                    </div>
+
+                    <div class="row mb-2">
+                        <label class="col-sm-2 col-form-label fw-bold text-danger">시작날짜</label>
+                        <div class="col-sm-4">
+                            <input type="text" value="없음" class="form-control-plaintext" disabled/>
+                        </div>
+
+                         <label class="col-sm-2 col-form-label fw-bold text-danger">종료날짜</label>
+                        <div class="col-sm-4">
+                            <input type="text" value="없음" class="form-control-plaintext" disabled/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>        
+    </div>
+
+    <div class="row mb-1"> 
+        <div class="col-sm-12 col-md-6 col-xl-8 p-2">
+          <div class="card shadow">
+              <div class="card-header bg-white">
+                  <i class="bi-people-fill me-2" style="color:#198754"></i>
+                   활동 인원
+              </div>
+              <div class="card-body">
+                  <table class="table table-hover">
+                      <tr>
+                          <td>
+                              <div class="row">
+                                 <div class="col-4">
+                                    <h6 class="fw-bold">고고한</h6>
+                                    <small>금잔디</small>
+                                  </div>
+                                  <div class="col-2 border-left">
+                                      <h6 class="text-center">참여중인 Task</h6>
+                                      <small>이세계로 빠진다면</small>
+                                  </div>
+                                  <div class="col-2 border-left">
+                                      <h6 class="text-center">포인트</h6>
+                                      <small>3810</small>
+                                  </div>
+                                  <div class="col-2 border-left">
+                                      <h6 class="text-center">가입날짜</h6>
+                                      <small>2021-12-01</small>
+                                  </div>
+                              </div>
+                          </td>
+                      </tr>
+                       <tr>
+                          <td>
+                              <div class="col-12">
+                                  박태호
+                              </div>
+                          </td>
+                      </tr>
+                       <tr>
+                          <td>
+                              <div class="col-12">
+                                  정태호
+                              </div>
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>
+                              <div class="col-12">
+                                  이태호
+                              </div>
+                          </td>
+                      </tr>
+                  </table>
+              </div>
+          </div>
+        </div>    
+        
+        <div class="col-sm-12 col-md-6 col-xl-4 p-2">
+          <div class="card shadow">
+              <div class="card-header bg-white">
+                   <i class="bi bi-envelope-fill me-2" style="color:#198754"></i>
+                  초대 현황
+              </div>
+              <div class="card-body">
+
+              </div>
+          </div>
+        </div>  
+    </div>
+
+    <div class="row mb-1"> 
+        <div class="col-sm-12 col-md-6 col-xl-6 p-2">
+          <div class="card shadow">
+              <div class="card-header bg-white">
+                  <i class="bi bi-play-circle-fill me-2" style="color:#198754"></i>
+                 진행중인 Task
+              </div>
+              <div class="card-body">
+
+              </div>
+          </div>
+        </div>    
+
+         <div class="col-sm-12 col-md-6 col-xl-6 p-2">
+          <div class="card shadow">
+              <div class="card-header bg-white">
+                   <i class="bi bi-stop-circle-fill me-2" style="color:#198754"></i>
+                 완료된 Task
+              </div>
+              <div class="card-body">
+
+              </div>
+          </div>
+        </div>    
+    </div>
+
+    <div class="row mb-1">
+        <div class="col-12 p-2">
+             <div class="card shadow">
+              <div class="card-header bg-white">
+                   <i class="bi bi-bell-fill me-2" style="color:#198754"></i>
+                 이벤트
+              </div>
+              <div class="card-body">
+
+              </div>
+          </div>
+        </div>
+    </div>
+</div>
+<partial name="_Modal.cshtml" />
+<script src="~/js/gardenSpace.js"></script>

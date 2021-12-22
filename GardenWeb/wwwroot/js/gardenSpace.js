@@ -1,4 +1,4 @@
-﻿//워크스페이스 생성창 열기
+﻿//GardenSpace - 워크스페이스 생성창 열기
 function RenderCreateModal() {
     //모달 타이틀
     let modalTitle = '<i class="bi bi-plus-circle-fill text-primary me-2"></i>';
@@ -80,3 +80,13 @@ function RenderCreateModal() {
     document.getElementById('modal_footer').innerHTML = modalFooter;
 }
 
+//GardenSpace - 상세조회
+function DetailGardenSpace() {
+    location.href = './GardenSpace/Detail';
+}
+
+
+function Test() {
+    event.preventDefault();
+    alert("Test");
+}

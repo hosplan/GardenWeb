@@ -11,7 +11,7 @@
         <div class="col-6 p-2">
             <div class="card shadow h-100 py-2">
                 <div class="card-body">
-                    <div class="row no-gutters align-items-center">
+                    <div class="row no-gutters align-items-center f">
                         <div class="col mr-2">
                             <div class="fw-bold mb-1">
                                 나의 Space 참여 인원
@@ -43,10 +43,9 @@
                 </div>
             </div>
         </div>
-
     </div>
-    <div class="row mb-3">
 
+    <div class="row mb-3">
         <div class="col-auto">
             <button class="btn btn-link btn-md p-0" type="button">
                 <i class="bi-nut-fill text-success"></i>
@@ -79,12 +78,12 @@
             </div>
         </div>
         <div class="col-sm-12 col-md-6 col-xl-4 p-2">
-            <div class="card garden_space_card" style="min-height:490px;">
+            <div class="card garden_space_card"  style="min-height:490px;">
                 <div class="card-header bg-primary">
 
                     <span class="badge me-2">2021-12-15 ~ 2021-12-24</span>
 
-                    <button type="button" class="btn btn-link btn-xs p-0 me-2 float-end">
+                    <button type="button" onclick="Test()" class="btn btn-link btn-xs p-0 me-2 float-end">
                         <i class="bi bi-trash-fill text-white"></i>
                     </button>
                     <button type="button" class="btn btn-link btn-xs p-0 me-2 float-end">
@@ -100,12 +99,11 @@
                 </div>
                 <img src="~/img/fondue.jpg" class="card-img-top" style="height:200px;" />
                 <div class="card-body">
-                    <h5 class="card-title fw-bold w-100" style="color: #479f76">
+                    <h5 class="card-title fw-bold w-100" style="color: #479f76" onclick="DetailGardenSpace();">
                         계피맛 퐁듀
                         <button type="button" class="btn btn-link btn-xs p-0 me-1">
                             <i class="bi bi-star text-secondary"></i>
                         </button>
-
                     </h5>
                     <p class="card-text">
                         계피맛 퐁듀를 좋아하는
@@ -129,13 +127,13 @@
         </div>
 
         <div class="col-sm-12 col-md-6 col-xl-4 p-2">
-            <div class="card garden_space_card" onclick="DetailGardenSpace();" style="min-height:490px;">
+            <div class="card garden_space_card"  style="min-height:490px;">
                 <div class="card-header bg-warning fw-bolder text-white">
                     <span class="badge me-2">2021-12-01 ~ 2021-12-22</span>
                 </div>
                 <img src="~/img/hamburg.jpg" class="card-img-top" style="height:200px;" />
                 <div class="card-body">
-                    <h5 class="card-title fw-bold w-100" style="color: #479f76">
+                    <h5 class="card-title fw-bold w-100" style="color: #479f76" onclick="DetailGardenSpace();">
                         아치형 다리 프로젝트
                         <button type="button" class="btn btn-link btn-xs p-0 me-1">
                             <i class="bi bi-star-fill text-secondary"></i>
