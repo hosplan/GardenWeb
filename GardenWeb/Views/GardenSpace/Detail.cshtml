@@ -1,91 +1,20 @@
 ﻿
 <div class="container">
+    <input type="hidden" id="space_id" value="@ViewBag.id" />
     <div class="row mb-3 mt-3">
         <div class="col-6">
-            <h2 class="garden_space_title fw-bolder">계피맛 퐁듀</h2>
+            <h2 class="garden_space_title fw-bolder" id="detail_space_name">계피맛 퐁듀</h2>
         </div>
         <div class="col-6">
             <button type="button" class="btn btn-link btn-md float-end p-0 ms-3"><i class="bi bi-trash-fill fs-3 text-danger"></i></button>
             <button type="button" class="btn btn-link btn-md float-end p-0 ms-3"><i class="bi bi-brush-fill fs-3 text-success"></i></button>
-            <button type="button" onclick="MovePage('./IndexForGardenBaseType')" class="btn btn-link btn-md float-end p-0 ms-3">
+            <button type="button" onclick="MovePage('/GardenSpace/IndexForGardenBaseType?id=@ViewBag.id')" class="btn btn-link btn-md float-end p-0 ms-3">
                 <i class="bi bi-nut-fill fs-3 text-warning"></i>
-                </button>
+            </button>
         </div>
     </div>
 
-    <div class="row mb-3">
-        <div class="col-xs-6 col-sm-6 col-xl-3 p-2">
-            <div class="card shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="fw-bold mb-1">
-                                참가 인원
-                            </div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">137 / 150</div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="bi-people-fill fs-2" style="color:#198754"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-xs-6 col-sm-6 col-xl-3 p-2">
-            <div class="card shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="fw-bold mb-1">
-                                초대 현황
-                            </div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">13 / 57</div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="bi-envelope-fill fs-2" style="color:#198754"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-xs-6 col-sm-6 col-xl-3 p-2">
-            <div class="card shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="fw-bold mb-1">
-                                진행중인 Task
-                            </div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">13</div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="bi-play-circle-fill fs-2" style="color:#198754"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-xs-6 col-sm-6 col-xl-3 p-2">
-            <div class="card shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="fw-bold mb-1">
-                                이벤트
-                            </div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">13</div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="bi bi-bell-fill fs-2" style="color:#198754"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <partial name="_DetailForTop.cshtml" />
 
     <div class="row mb-1">
         <div class="col-sm-12 col-md-6 col-xl-4 p-2">
@@ -116,7 +45,7 @@
                             생성자
                         </label>
                         <div class="col-sm-9">
-                            <input type="text" value="고고한" class="form-control-plaintext" disabled />
+                            <input type="text" value="고고한" id="detail_space_creator" class="form-control-plaintext" disabled />
                         </div>
                     </div>
 
@@ -126,7 +55,7 @@
                             생성일자
                         </label>
                         <div class="col-sm-9">
-                            <input type="text" value="2021-12-22" class="form-control-plaintext" disabled />
+                            <input type="text" value="2021-12-22" id="detail_space_create_date" class="form-control-plaintext" disabled />
                         </div>
                     </div>
 
@@ -136,7 +65,7 @@
                             타입
                         </label>
                         <div class="col-sm-9">
-                            <input type="text" value="음악학원" class="form-control-plaintext" disabled />
+                            <input type="text" value="음악학원" id="detail_space_type_name" class="form-control-plaintext" disabled />
                         </div>
                     </div>
 
@@ -146,7 +75,7 @@
                             공개여부
                         </label>
                         <div class="col-sm-9">
-                            <input type="text" value="비공개" class="form-control-plaintext" disabled />
+                            <input type="text" value="비공개" id="detail_space_is_private" class="form-control-plaintext" disabled />
                         </div>
                     </div>
 
@@ -156,7 +85,7 @@
                             초대로만 받기
                         </label>
                         <div class="col-sm-9">
-                            <input type="text" value="true" class="form-control-plaintext" disabled />
+                            <input type="text" value="true" id="detail_space_only_invite" class="form-control-plaintext" disabled />
                         </div>
                     </div>
                     <hr />
@@ -166,7 +95,7 @@
                             계획 시작날짜
                         </label>
                         <div class="col-sm-3">
-                            <input type="text" value="없음" class="form-control-plaintext" disabled />
+                            <input type="text" value="없음" id="detail_space_plan_start_date" class="form-control-plaintext" disabled />
                         </div>
 
                         <label class="col-sm-3 col-form-label fw-bold text-danger">
@@ -174,7 +103,7 @@
                             계획 종료날짜
                         </label>
                         <div class="col-sm-3">
-                            <input type="text" value="없음" class="form-control-plaintext" disabled />
+                            <input type="text" value="없음" id="detail_space_plan_end_date" class="form-control-plaintext" disabled />
                         </div>
                     </div>
 
@@ -184,7 +113,7 @@
                             시작날짜
                         </label>
                         <div class="col-sm-3">
-                            <input type="text" value="없음" class="form-control-plaintext" disabled />
+                            <input type="text" value="없음" id="detail_space_start_date" class="form-control-plaintext" disabled />
                         </div>
 
                         <label class="col-sm-3 col-form-label fw-bold text-danger">
@@ -192,188 +121,21 @@
                             종료날짜
                         </label>
                         <div class="col-sm-3">
-                            <input type="text" value="없음" class="form-control-plaintext" disabled />
+                            <input type="text" value="없음" id="detail_space_end_date" class="form-control-plaintext" disabled />
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <div class="row mb-1">
-        <div class="col-sm-12 col-md-6 col-xl-6 p-2">
-            <div class="card" style="min-height:300px; max-height:300px; overflow-y:auto">
-                <div class="card-header bg-white fw-bold">
-                    <i class="bi bi-play-circle-fill me-2" style="color:#198754"></i>
-                    진행중인 Task
-                </div>
-                <div class="card-body">
-                    <table class="table table-hover">
-                        <tr>
-                            <td>Test Task1</td>
-                            <td><i class="bi bi-people-fill me-2"></i>4</td>
-                            <td>2021-10-30</td>
-                            <td>2021-12-31</td>
-                        </tr>
-                        <tr>
-                            <td>Test Task2</td>
-                            <td><i class="bi bi-people-fill me-2"></i>15</td>
-                            <td>2021-10-30</td>
-                            <td>2021-12-31</td>
-                        </tr>
-                        <tr>
-                            <td>Test Task3</td>
-                            <td><i class="bi bi-people-fill me-2"></i>8</td>
-                            <td>2021-10-30</td>
-                            <td>2021-12-31</td>
-                        </tr>
-                        <tr>
-                            <td>Test Task4</td>
-                            <td><i class="bi bi-people-fill me-2"></i>8</td>
-                            <td>2021-10-30</td>
-                            <td>2021-12-31</td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-sm-12 col-md-6 col-xl-6 p-2">
-            <div class="card" style="min-height:300px; max-height:300px; overflow-y:auto">
-                <div class="card-header bg-white fw-bold">
-                    <i class="bi bi-stop-circle-fill me-2" style="color:#198754"></i>
-                    완료된 Task
-                </div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-auto m-auto">
-                            <img src="~/img/noElement/undraw_not_found.svg" style="height:150px;" />
-                            <br />
-                            <br />
-                            <h5 class="fw-bold">조회된 데이터가 없어요.</h5>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row mb-1">
-        <div class="col-sm-12 col-md-12 col-xl-4 p-2">
-            <div class="card" style="min-height:300px; max-height:300px; overflow-y:auto;">
-                <div class="card-header bg-white fw-bold">
-                    <i class="bi-people-fill me-2" style="color:#198754"></i>
-                    참가 인원
-                </div>
-                <div class="card-body">
-                    <table class="table table-hover">
-                        <tr>
-                            <td>계피맛 퐁듀</td>
-                            <td>2021-12-04</td>
-                        </tr>
-                        <tr>
-                            <td>포도맛 퐁듀</td>
-                            <td>2021-12-03</td>
-                        </tr>
-                        <tr>
-                            <td>스리라차맛 퐁듀</td>
-                            <td>2021-12-01</td>
-                        </tr>
-                        <tr>
-                            <td>핵폭탄 </td>
-                            <td>2021-12-13</td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-sm-12 col-md-12 col-xl-4 p-2">
-            <div class="card" style="min-height:300px; max-height:300px; overflow-y:auto;">
-                <div class="card-header bg-white fw-bold">
-                    <i class="bi bi-envelope-fill me-2" style="color:#198754"></i>
-                    초대 현황(수신)
-                    <button class="btn btn-link float-end p-0">
-                        <i class="bi bi-x-circle-fill text-danger ms-2"></i>
-                    </button>
-                    <button class="btn btn-link float-end p-0">
-                        <i class="bi bi-check-circle-fill text-primary"></i>
-                    </button>
-
-                </div>
-                <div class="card-body">
-                    <table class="table table-hover">
-                        <tr>
-                            <td>Sepia Wind</td>
-                            <td>2021-12-04</td>
-                            <td>
-                                <button type="button" class="btn btn-link btn-sm p-0"><i class="bi bi-check-circle-fill text-primary me-2"></i></button>
-                                <button type="button" class="btn btn-link btn-sm p-0"><i class="bi bi-x-circle-fill text-danger"></i></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>라이어넬</td>
-                            <td>2021-12-03</td>
-                            <td>
-                                <button type="button" class="btn btn-link btn-sm p-0"><i class="bi bi-check-circle-fill text-primary me-2"></i></button>
-                                <button type="button" class="btn btn-link btn-sm p-0"><i class="bi bi-x-circle-fill text-danger"></i></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>룰룰랄라</td>
-                            <td>2021-12-01</td>
-                            <td>
-                                <button type="button" class="btn btn-link btn-sm p-0"><i class="bi bi-check-circle-fill text-primary me-2"></i></button>
-                                <button type="button" class="btn btn-link btn-sm p-0"><i class="bi bi-x-circle-fill text-danger"></i></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>커피 추출기</td>
-                            <td>2021-12-13</td>
-                            <td>
-                                <button type="button" class="btn btn-link btn-sm p-0"><i class="bi bi-check-circle-fill text-primary me-2"></i></button>
-                                <button type="button" class="btn btn-link btn-sm p-0"><i class="bi bi-x-circle-fill text-danger"></i></button>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-sm-12 col-md-12 col-xl-4 p-2">
-            <div class="card" style="min-height:300px; max-height:300px; overflow-y:auto;">
-                <div class="card-header bg-white fw-bold">
-                    <i class="bi bi-envelope-fill me-2" style="color:#198754"></i>
-                    초대 현황(발신)
-                    <button class="btn btn-link float-end p-0">
-                        <i class="bi bi-person-plus-fill"></i>
-                    </button>
-                </div>
-                <div class="card-body">
-                    <table class="table table-hover">
-                        <tr>
-                            <td>vamps</td>
-                            <td>2021-12-04</td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row mb-1">
-        <div class="col-12 p-2">
-            <div class="card">
-                <div class="card-header bg-white fw-bold">
-                    <i class="bi bi-bell-fill me-2" style="color:#198754"></i>
-                    이벤트
-                </div>
-                <div class="card-body">
-                </div>
-            </div>
-        </div>
-    </div>
+    <partial name="_DetailForTask.cshtml" />
+    <partial name="_DetailForParticipant.cshtml" />
+    <partial name="_DetailForEvent.cshtml" />
 </div>
 <partial name="_Modal.cshtml" />
 <script src="~/js/gardenSpace.js"></script>
+<script type="text/javascript">
+    document.addEventListener('DOMContentLoaded',function(){
+        GetGardenSpaceDetail();
+    });
+</script>

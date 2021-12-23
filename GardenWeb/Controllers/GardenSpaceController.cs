@@ -10,13 +10,15 @@ namespace GardenWeb.Controllers
             return View();
         }
 
-        public IActionResult Detail()
+        public IActionResult Detail(int id)
         {
+            ViewBag.id = id;
             return View();
         }
 
-        public IActionResult IndexForGardenBaseType()
+        public IActionResult IndexForGardenBaseType(int id)
         {
+            ViewBag.id = id;
             return View();
         }
     }

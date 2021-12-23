@@ -16,13 +16,14 @@ function Login() {
     })
         .then(async function (response) {
             let value = await response.json();
-            if (value == false) {
-                AlertMessage("비밀번호 맞지 않아요.");
+            if (value.token == false) {
+                AlertMessage("회원정보가 일치하지 않아요.");
                 return false;
             }
-            SetCookie('gardenToken', value.token);
+            console.log(value.token);
+            await SetCookie('gardenToken', value.token);
             let url = '/GardenUser/Index';
-            console.log(value.roleId);
+     
             if (Number(value.roleId) > 3) {
                 url = '/MemberShip/IndexForConfirm';
             }

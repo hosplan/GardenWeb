@@ -1,43 +1,42 @@
-﻿//baseRootType - 목록 정보 가져오기
+﻿//GardenRootType - 목록 값 불러오기
 function LoadBaseTypes() {
-    fetch(Object.values(baseTypeHost())[0] + '/base_root_type', {
+    let id = document.getElementById('space_id').value
+    fetch(Object.values(gardenSpaceHost())[0] + '/garden_root/space_id='+id+'', {
         method: 'GET',
         mode: 'cors',
         cache: 'no-cache',
-        credentials: 'include',
+        credentials: 'include'
     })
         .then(async function (response) {
             let jsonValue = await response.json();
             if (jsonValue.token == true) {
-                RenderBaseTypeRow(jsonValue.data);
+                RenderGardenRootTypeRow(jsonValue.data);
             }
         });
-    
 }
 
-//baseRootType - 목록 그리기
-function RenderBaseTypeRow(data) {
+//GardenRootType - 목록 값 표기
+function RenderGardenRootTypeRow(data) {
     let row = '';
     data.forEach(e => {
         row += '<tr>';
-        row += '<td><button class="btn btn-link p-0 fw-bold" onclick="LoadBaseBranchTypes('+e.id+', \''+e.name+'\')" style="text-decoration:none" type="button">'+e.name+'</button></td>';
-        row += '<td>'+e.description+'</td>';
-        row += '<td><span class="btn btn-default" style="background-color:'+e.color+'" aria-hidden="true"></span></td>';
+        row += '<td><button class="btn btn-link p-0 fw-bold" onclick="LoadBaseBranchTypes(' + e.id + ', \'' + e.name + '\')" style="text-decoration:none" type="button">' + e.name + '</button></td>';
+        row += '<td>' + e.description + '</td>';
+        row += '<td><span class="btn btn-default" style="background-color:' + e.color + '" aria-hidden="true"></span></td>';
         row += '<td>' +
-            '<button class="btn btn-link text-success p-0" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="RenderUpdateModal('+e.id+')" type="button"><i class="bi-brush-fill me-2"></i></button>' +
-            '<button class="btn btn-link text-danger p-0" type="button"><i class="bi-trash-fill me-2" onclick="QuestionDelete('+e.id+')"></i></button>' +
+            '<button class="btn btn-link text-success p-0" data-bs-toggle="modal" data-bs-target="#gardenSpaceModal" onclick="RenderUpdateModal(' + e.id + ')" type="button"><i class="bi-brush-fill me-2"></i></button>' +
+            '<button class="btn btn-link text-danger p-0" type="button"><i class="bi-trash-fill me-2" onclick="QuestionDelete(' + e.id + ')"></i></button>' +
             '</td>';
         row += '</tr>';
-       
-       
     });
     document.getElementById('baseRootType_tbody').innerHTML = row;
 }
 
+
 //baseRootType - 특정 BaseRootType 정보 가져오기
 async function GetBaseRootType(id) {
 
-    let data = await fetch(Object.values(baseTypeHost())[0] + '/base_root_type/' + id + '', {
+    let data = await fetch(Object.values(gardenSpaceHost())[0] + '/garden_root/' + id + '', {
         method: 'GET',
         mode: 'cors',
         cache: 'no-cache',
@@ -65,7 +64,7 @@ function PutBaseTypeValue(value) {
 
 //baseRootType - 수정 모달창 그리기
 async function RenderUpdateModal(id) {
-    document.getElementById('exampleModalLabel').innerHTML = 'BaseType 수정';
+    document.getElementById('garden_basetype_title').innerHTML = 'BaseType 수정';
 
     let modalBody = '<div class="mb-3 row">';
     modalBody += '<label class="col-sm-2 col-form-label fw-bold">이름</label>';
@@ -98,7 +97,7 @@ async function RenderUpdateModal(id) {
 
 //baseRootType - 생성 모달창 그리기 
 function RenderCreateModal() {
-    document.getElementById('exampleModalLabel').innerHTML = 'BaseType 생성';
+    document.getElementById('garden_basetype_title').innerHTML = 'BaseType 생성';
 
     let modalBody = '<div class="mb-3 row">';
     modalBody += '<label class="col-sm-2 col-form-label">이름</label>';
@@ -124,7 +123,7 @@ function RenderCreateModal() {
     let modalFooter = '<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>';
     modalFooter += '<button type="button" class="btn btn-primary" onclick="CreateBaseRootType()" data-bs-dismiss="modal">생성</button>';
 
-    document.getElementById('modal_footer').innerHTML = modalFooter; 
+    document.getElementById('modal_footer').innerHTML = modalFooter;
 }
 
 //baseRootType - BaseRootType 유효성 체크
@@ -140,7 +139,7 @@ function ValidationCheckForBaseRootType() {
     }
     else {
         return true;
-    }    
+    }
 }
 
 //baseRootType - BaseType Form 만들기
@@ -164,9 +163,9 @@ function QuestionDelete(id) {
     Swal.fire({
         title: '해당 BaseType을 삭제하실 건가요?',
         icon: 'question',
-        html : '<p class="text-danger fw-bolder">관련된 BaseBrachType 또한 삭제가 되요.</p>',
+        html: '<p class="text-danger fw-bolder">관련된 BaseBrachType 또한 삭제가 되요.</p>',
         showCloseButton: true,
-        showCancelButton: true,        
+        showCancelButton: true,
         confirmButtonText: '삭제하기',
         cancelButtonText: '취소'
     }).then((result) => {
@@ -178,10 +177,10 @@ function QuestionDelete(id) {
 
 //baseRootType - 삭제
 function RemoveBaseRootType(id) {
-    fetch(Object.values(baseTypeHost())[0] + '/base_root_type', {
+    fetch(Object.values(gardenSpaceHost())[0] + '/garden_root', {
         method: 'DELETE',
         mode: 'cors',
-        cache: 'no-cache',        
+        cache: 'no-cache',
         credentials: 'include',
         headers: {
             'Content-Type': 'application/json'
@@ -205,12 +204,12 @@ async function UpdateBaseRootType() {
         return;
     }
 
-    fetch(Object.values(baseTypeHost())[0] + '/base_root_type', {
+    fetch(Object.values(gardenSpaceHost())[0] + '/garden_root', {
         method: 'PATCH',
         mode: 'cors',
         cache: 'no-cache',
         credentials: 'include',
-        body : await GetBaseRootTypeForm()
+        body: await GetBaseRootTypeForm()
     })
         .then(async function (response) {
             let jsonValue = await response.json();
@@ -229,7 +228,7 @@ async function CreateBaseRootType() {
         return;
     }
 
-    fetch(Object.values(baseTypeHost())[0] + '/base_root_type', {
+    fetch(Object.values(gardenSpaceHost())[0] + '/garden_root', {
         method: 'POST',
         mode: 'cors',
         cache: 'no-cache',
@@ -250,9 +249,9 @@ async function CreateBaseRootType() {
 
 //baseBranchType - branchType 생성 버튼 생성
 function RenderCreateBranchCreateBtn() {
-    let btn = '<button class="btn btn-link p-0 float-end" onclick="RenderBranchCreateModal()" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">' +
-              '<i class="bi bi-plus-circle-fill"></i>' +
-              '</button>';
+    let btn = '<button class="btn btn-link p-0 float-end" onclick="RenderBranchCreateModal()" type="button" data-bs-toggle="modal" data-bs-target="#gardenSpaceModal">' +
+        '<i class="bi bi-plus-circle-fill"></i>' +
+        '</button>';
 
     document.getElementById('create_base_branch_type_dv').innerHTML = btn;
 }
@@ -265,7 +264,7 @@ function LoadBaseBranchTypes(id, name) {
     document.getElementById('baseBranchType_title').innerHTML = name;
     document.getElementById('relate_baseRootType_id').value = id;
 
-    fetch(Object.values(baseTypeHost())[0] + '/base_branch_type/root_type='+id+'', {
+    fetch(Object.values(gardenSpaceHost())[0] + '/garden_branch/root_type=' + id + '', {
         method: 'GET',
         mode: 'cors',
         cache: 'no-cache',
@@ -288,7 +287,7 @@ function RenderBaseBranchRow(data) {
         row += '<td>' + e.description + '</td>';
         row += '<td><span class="btn btn-default" style="background-color:' + e.color + '" aria-hidden="true"></span></td>';
         row += '<td>' +
-            '<button class="btn btn-link text-success p-0" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="RenderBranchTypeUpdateModal(' + e.id + ')" type="button"><i class="bi-brush-fill me-2"></i></button>' +
+            '<button class="btn btn-link text-success p-0" data-bs-toggle="modal" data-bs-target="#gardenSpaceModal" onclick="RenderBranchTypeUpdateModal(' + e.id + ')" type="button"><i class="bi-brush-fill me-2"></i></button>' +
             '<button class="btn btn-link text-danger p-0" type="button"><i class="bi-trash-fill me-2" onclick="QuestionBranchTypeDelete(' + e.id + ')"></i></button>' +
             '</td>';
         row += '</tr>';
@@ -299,7 +298,7 @@ function RenderBaseBranchRow(data) {
 //baseBranchType - 특정 BaseRootType 정보 가져오기
 async function GetBaseBranchType(id) {
 
-    let data = await fetch(Object.values(baseTypeHost())[0] + '/base_branch_type/' + id + '', {
+    let data = await fetch(Object.values(gardenSpaceHost())[0] + '/garden_root/' + id + '', {
         method: 'GET',
         mode: 'cors',
         cache: 'no-cache',
@@ -327,7 +326,7 @@ function PutBaseBranchTypeValue(value) {
 
 //baseBranchType - 수정 모달창 그리기
 async function RenderBranchTypeUpdateModal(id) {
-    document.getElementById('exampleModalLabel').innerHTML = 'BaseBranchType 수정';
+    document.getElementById('garden_basetype_title').innerHTML = 'BaseBranchType 수정';
 
     let modalBody = '<div class="mb-3 row">';
     modalBody += '<label class="col-sm-2 col-form-label fw-bold">이름</label>';
@@ -362,7 +361,7 @@ async function RenderBranchTypeUpdateModal(id) {
 
 //baseBranchType - 생성 모달창 그리기
 function RenderBranchCreateModal() {
-    document.getElementById('exampleModalLabel').innerHTML = 'BaseBranchType 생성';
+    document.getElementById('garden_basetype_title').innerHTML = 'BaseBranchType 생성';
 
     let modalBody = '<div class="mb-3 row">';
     modalBody += '<label class="col-sm-2 col-form-label">이름</label>';
@@ -415,7 +414,7 @@ function GetBaseBranchTypeForm() {
         baseBranchTypeForm.append('Id', document.getElementById('baseBranchType_id').value);
     }
 
-    baseBranchTypeForm.append('BaseRootTypeId', document.getElementById('relate_baseRootType_id').value);
+    baseBranchTypeForm.append('RootTypeId', document.getElementById('relate_baseRootType_id').value);
     baseBranchTypeForm.append('Name', document.getElementById('baseBranchType_name').value);
     baseBranchTypeForm.append('Description', document.getElementById('baseBranchType_desc').value);
     baseBranchTypeForm.append('Color', document.getElementById('baseBranchType_color').value);
@@ -445,7 +444,7 @@ function QuestionBranchTypeDelete(id) {
 
 //baseBranchType - 삭제
 function RemoveBaseBranchType(id) {
-    fetch(Object.values(baseTypeHost())[0] + '/base_branch_type', {
+    fetch(Object.values(gardenSpaceHost())[0] + '/garden_branch', {
         method: 'DELETE',
         mode: 'cors',
         cache: 'no-cache',
@@ -474,7 +473,7 @@ async function UpdateBaseBranchType() {
         return;
     }
 
-    fetch(Object.values(baseTypeHost())[0] + '/base_branch_type', {
+    fetch(Object.values(gardenSpaceHost())[0] + '/garden_branch', {
         method: 'PATCH',
         mode: 'cors',
         cache: 'no-cache',
@@ -507,7 +506,7 @@ async function CreateBaseBranchType() {
         return;
     }
 
-    fetch(Object.values(baseTypeHost())[0] + '/base_branch_type', {
+    fetch(Object.values(gardenSpaceHost())[0] + '/garden_branch', {
         method: 'POST',
         mode: 'cors',
         cache: 'no-cache',

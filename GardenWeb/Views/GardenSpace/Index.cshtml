@@ -47,7 +47,7 @@
 
     <div class="row mb-3">
         <div class="col-auto">
-            <button class="btn btn-link btn-md p-0" onclick="RenderCreateModal()" data-bs-toggle="modal" data-bs-target="#createGardenSpaceModal" type="button">
+            <button class="btn btn-link btn-md p-0" onclick="RenderCreateModal()" data-bs-toggle="modal" data-bs-target="#gardenSpaceModal" type="button">
                 <i class="bi-plus-circle-fill text-primary"></i>
             </button>
         </div>
@@ -63,61 +63,13 @@
         </div>
     </div>
     <hr />
-    <div class="row mb-3">
+    <div class="row mb-3" id="garden_space_list">
         <div class="col-sm-12 col-md-6 col-xl-4 p-2">
-            <div class="card border-5 add_space_card" onclick="RenderCreateModal()" data-bs-toggle="modal" data-bs-target="#createGardenSpaceModal" style="min-height:490px;">
+            <div class="card border-5 add_space_card" onclick="RenderCreateModal()" data-bs-toggle="modal" data-bs-target="#gardenSpaceModal" style="min-height:490px;">
                 <img class="pt-5" src="~/img/undraw_add_post.svg" style="height:250px;" />
                 <br />
                 <br />
                 <h3 class="text-center fw-bolder text-secondary"><i class="bi bi-plus-circle-fill text-primary me-2"></i>작업 공간 만들기</h3>
-            </div>
-        </div>
-        <div class="col-sm-12 col-md-6 col-xl-4 p-2">
-            <div class="card garden_space_card"  style="min-height:490px;">
-                <div class="card-header bg-primary">
-
-                    <span class="badge me-2">2021-12-15 ~ 2021-12-24</span>
-
-                    <button type="button" onclick="Test()" class="btn btn-link btn-xs p-0 me-2 float-end">
-                        <i class="bi bi-trash-fill text-white"></i>
-                    </button>
-                    <button type="button" class="btn btn-link btn-xs p-0 me-2 float-end">
-                        <i class="bi bi-brush-fill text-white"></i>
-                    </button>
-                    <button type="button" class="btn btn-link btn-xs p-0 me-2 float-end">
-                        <i class="bi-envelope-fill text-white"></i>
-                    </button>
-                    <button type="button" class="btn btn-link btn-xs p-0 me-2 float-end">
-                        <i class="bi-eye-fill text-white"></i>
-                    </button>
-
-                </div>
-                <img src="~/img/fondue.jpg" class="card-img-top" style="height:200px;" />
-                <div class="card-body">
-                    <h5 class="card-title fw-bold w-100" style="color: #479f76" onclick="DetailGardenSpace();">
-                        계피맛 퐁듀
-                        <button type="button" class="btn btn-link btn-xs p-0 me-1">
-                            <i class="bi bi-star text-secondary"></i>
-                        </button>
-                    </h5>
-                    <p class="card-text">
-                        계피맛 퐁듀를 좋아하는
-                        사람들의 모임
-                    </p>
-                    <span class="badge bg-primary me-2"><i class="bi-tag-fill text-white me-2"></i>학원</span>
-
-                </div>
-                <div class="card-footer">
-                    <div class="row mt-1 mb-2">
-
-                        <div class="col-auto m-auto mt-2 mb-2">
-                            <img src="~/img/example.jpg" class="card-img-top" style="height:40px; width:40px; border-radius:100%;" />
-                            <img src="~/img/example.jpg" class="card-img-top" style="height:40px; width:40px; border-radius: 100%;" />
-                            <img src="~/img/example.jpg" class="card-img-top" style="height:40px; width:40px; border-radius: 100%;" />
-                        </div>
-                        <small class="col-12 text-center">3명 참가중</small>
-                    </div>
-                </div>
             </div>
         </div>
 
@@ -157,3 +109,8 @@
 </div>
 <partial name="_Modal.cshtml" />
 <script src="~/js/gardenSpace.js"></script>
+<script type="text/javascript">
+    document.addEventListener('DOMContentLoaded',function(){
+        LoadGardenSpace();
+    });
+</script>
