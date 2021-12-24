@@ -304,15 +304,14 @@ async function GetBaseBranchType(id) {
         cache: 'no-cache',
         credentials: 'include',
     })
-        .then((response) => response.json())
-        .then(value => {
-            console.log(value.data);
-            return value.data;
-        })
-        .catch(error => {
-            console.error(error);
-        });
-
+    .then((response) => response.json())
+    .then(value => {
+        console.log(value.data);
+        return value.data;
+    })
+    .catch(error => {
+        console.error(error);
+    });
     return data;
 }
 

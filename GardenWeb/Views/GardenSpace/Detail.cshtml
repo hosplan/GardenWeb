@@ -7,7 +7,9 @@
         </div>
         <div class="col-6">
             <button type="button" class="btn btn-link btn-md float-end p-0 ms-3"><i class="bi bi-trash-fill fs-3 text-danger"></i></button>
-            <button type="button" class="btn btn-link btn-md float-end p-0 ms-3"><i class="bi bi-brush-fill fs-3 text-success"></i></button>
+            <button type="button" onclick="RenderUpdateSpaceModal()" data-bs-toggle="modal" data-bs-target="#gardenSpaceModal" class="btn btn-link btn-md float-end p-0 ms-3">
+                <i class="bi bi-brush-fill fs-3 text-success"></i>
+            </button>
             <button type="button" onclick="MovePage('/GardenSpace/IndexForGardenBaseType?id=@ViewBag.id')" class="btn btn-link btn-md float-end p-0 ms-3">
                 <i class="bi bi-nut-fill fs-3 text-warning"></i>
             </button>
@@ -71,21 +73,28 @@
 
                     <div class="row mb-2">
                         <label class="col-sm-3 col-form-label fw-bold text-danger">
-                            <i class="bi-eye-fill me-2"></i>
-                            공개여부
-                        </label>
-                        <div class="col-sm-9">
-                            <input type="text" value="비공개" id="detail_space_is_private" class="form-control-plaintext" disabled />
-                        </div>
-                    </div>
-
-                    <div class="row mb-2">
-                        <label class="col-sm-3 col-form-label fw-bold text-danger">
                             <i class="bi-envelope-fill me-2"></i>
                             초대로만 받기
                         </label>
-                        <div class="col-sm-9">
+                        <div class="col-sm-3" >
                             <input type="text" value="true" id="detail_space_only_invite" class="form-control-plaintext" disabled />
+                        </div>
+
+                        <label class="col-sm-3 col-form-label fw-bold text-danger">
+                            <i class="bi-eye-fill me-2"></i>
+                            공개여부
+                        </label>
+                        <div class="col-sm-3">
+                            <input type="text" value="비공개" id="detail_space_is_private" class="form-control-plaintext" disabled />
+                        </div>
+                    </div>
+                       <div class="row mb-2">
+                        <label class="col-sm-3 col-form-label fw-bold text-danger">
+                            <i class="bi-pencil-fill me-2"></i>
+                            설명
+                        </label>
+                        <div class="col-sm-9">
+                            <input type="text" value="true" id="detail_space_description" class="form-control-plaintext" disabled />
                         </div>
                     </div>
                     <hr />
