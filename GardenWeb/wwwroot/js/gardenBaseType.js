@@ -79,12 +79,6 @@ async function RenderUpdateModal(id) {
     modalBody += '<input type="text" class="form-control" id="baseRootType_desc"  />';
     modalBody += '</div>';
     modalBody += '</div>';
-    modalBody += '<div class="mb-3 row">';
-    modalBody += '<label class="col-sm-2 col-form-label fw-bold">색상</label>';
-    modalBody += '<div class="col-sm-10">';
-    modalBody += '<input type="color" class="form-control form-control-color" id="baseRootType_color"  title="색상을 선택하세요" />';
-    modalBody += '</div>';
-    modalBody += '</div>';
 
     document.getElementById('modal_body').innerHTML = modalBody;
     await PutBaseTypeValue(await GetBaseRootType(id));
@@ -109,12 +103,6 @@ function RenderCreateModal() {
     modalBody += '<label class="col-sm-2 col-form-label">설명</label>';
     modalBody += '<div class="col-sm-10">';
     modalBody += '<input type="text" class="form-control" id="baseRootType_desc" />';
-    modalBody += '</div>';
-    modalBody += '</div>';
-    modalBody += '<div class="mb-3 row">';
-    modalBody += '<label class="col-sm-2 col-form-label font-weight-bold">색상</label>';
-    modalBody += '<div class="col-sm-10">';
-    modalBody += '<input type="color" class="form-control form-control-color" id="baseRootType_color" value="#FFF" title="색상을 선택하세요" />';
     modalBody += '</div>';
     modalBody += '</div>';
 
@@ -150,9 +138,10 @@ function GetBaseRootTypeForm() {
         baseRootTypeForm.append('Id', document.getElementById('baseRootType_id').value);
     }
 
+    baseRootTypeForm.append('GardenSpaceId', document.getElementById('space_id').value);
     baseRootTypeForm.append('Name', document.getElementById('baseRootType_name').value);
     baseRootTypeForm.append('Description', document.getElementById('baseRootType_desc').value);
-    baseRootTypeForm.append('Color', document.getElementById('baseRootType_color').value);
+    //baseRootTypeForm.append('Color', document.getElementById('baseRootType_color').value);
 
     return baseRootTypeForm;
 }

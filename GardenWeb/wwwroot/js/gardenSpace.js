@@ -41,8 +41,6 @@ async function CreateGardenSpace() {
     });
 }
 
-
-
 //GardenSpace - 상세정보 값 표기
 function RenderSpaceDetail(data) {
     document.getElementById('detail_space_name').innerText = data.name;
@@ -56,6 +54,9 @@ function RenderSpaceDetail(data) {
     document.getElementById('detail_space_start_date').value = data.startDate;
     document.getElementById('detail_space_end_date').value = data.endDate;
     document.getElementById('detail_space_description').value = data.description;
+    let spaceColor = document.getElementById('detail_space_color');
+    console.log(data.color);
+    spaceColor.style.backgroundColor = data.color;
 }
 
 async function GetGardenInfo() {
@@ -93,6 +94,7 @@ async function RenderUpdateSpaceModal() {
     let modalBody = '<div class="mb-3 row">';
     modalBody += '<input type="hidden" value=' + data.id + ' id="update_garden_space_id" />';
     modalBody += '<input type="hidden" value=' + data.creator + ' id="update_garden_space_creator" />';
+    modalBody += '<input type="hidden" value='+ data.createDate+' id="update_garden_space_createDate" />'
     modalBody += '<label class="col-sm-2 col-form-label fw-bold text-danger">* 이름</label>';
     modalBody += '<div class="col-sm-10">';
     modalBody += '<label class="col-sm-2 col-form-label fw-bold" id="update_garden_space_name">'+data.name+'</label>';
@@ -102,7 +104,7 @@ async function RenderUpdateSpaceModal() {
     modalBody += '<div class="mb-3 row">';
     modalBody += '<label class="col-sm-2 col-form-label fw-bold">설명</label>';
     modalBody += '<div class="col-sm-10">';
-    modalBody += '<input type="text" class="form-control" id="update_garden_space_desc" />';
+    modalBody += '<input type="text" class="form-control" id="update_garden_space_desc" value='+data.description+' />';
     modalBody += '</div>';
     modalBody += '</div>';
     //작업종류
@@ -118,7 +120,11 @@ async function RenderUpdateSpaceModal() {
     modalBody += '<label class="col-sm-2 col-form-label fw-bold text-danger">비공개 여부</label>';
     modalBody += '<div class="col-sm-10">';
     modalBody += '<div class="form-check form-switch mt-2">';
-    modalBody += '<input class="form-check-input" type="checkbox" id="update_garden_space_isprivate">';
+    if (data.isPrivate == true) {
+        modalBody += '<input class="form-check-input" type="checkbox" id="update_garden_space_isprivate" checked/>';
+    } else {
+        modalBody += '<input class="form-check-input" type="checkbox" id="update_garden_space_isprivate" />';
+    }   
     modalBody += '</div>';
     modalBody += '</div>';
     modalBody += '</div>';
@@ -128,8 +134,20 @@ async function RenderUpdateSpaceModal() {
     modalBody += '<label class="col-sm-2 col-form-label fw-bold text-danger">초대로만 받기</label>';
     modalBody += '<div class="col-sm-10">';
     modalBody += '<div class="form-check form-switch mt-2">';
-    modalBody += '<input class="form-check-input" type="checkbox" id="update_garden_space_onlyInvite">';
+    if (data.onlyInvite == true) {
+        modalBody += '<input class="form-check-input" type="checkbox" id="update_garden_space_onlyInvite" checked />';
+    } else {
+        modalBody += '<input class="form-check-input" type="checkbox" id="update_garden_space_onlyInvite" />';
+    }
     modalBody += '</div>';
+    modalBody += '</div>';
+    modalBody += '</div>';
+
+    //색상
+    modalBody += '<div class="mb-3 row">';
+    modalBody += '<label class="col-sm-2 col-form-label fw-bold text-danger">색상</label>';
+    modalBody += '<div class="col-sm-10">';
+    modalBody += '<input type="color" class="form-control form-control-color" value='+data.color+' id="update_garden_space_color"  title="색상을 선택하세요" />';
     modalBody += '</div>';
     modalBody += '</div>';
     //hr
@@ -160,7 +178,6 @@ async function RenderUpdateSpaceModal() {
     modalBody += '</div>';
 
     document.getElementById('modal_body').innerHTML = modalBody;
-
     let modalFooter = '<button type="button" class="btn btn-secondary fw-bold" data-bs-dismiss="modal">닫기</button>';
     modalFooter += '<button type="button" class="btn btn-primary fw-bold" onclick="UpdateGardenSpace()" data-bs-dismiss="modal">수정</button>';
 
@@ -172,19 +189,20 @@ function GetUpdateSpaceForm() {
     let updateGardenSpaceForm = new FormData();
 
     updateGardenSpaceForm.append('Id', document.getElementById('update_garden_space_id').value);
-    updateGardenSpaceForm.append('SpaceName');
-    updateGardenSpaceForm.append('Description');
-    updateGardenSpaceForm.append('SpaceTypeName');
-    updateGardenSpaceForm.append('PlanStartDate');
-    updateGardenSpaceForm.append('PlanEndDate');
-    updateGardenSpaceForm.append('StartDate');
-    updateGardenSpaceForm.append('EndDate');
-    updateGardenSpaceForm.append();
-    updateGardenSpaceForm.append();
-    updateGardenSpaceForm.append();
-    updateGardenSpaceForm.append();
-    updateGardenSpaceForm.append();
-    updateGardenSpaceForm.append();
+    updateGardenSpaceForm.append('SpaceName', document.getElementById('update_garden_space_name').text);
+    updateGardenSpaceForm.append('Description', document.getElementById('update_garden_space_desc').value);
+    updateGardenSpaceForm.append('SpaceTypeName', document.getElementById('update_garden_space_type_name').value);
+    updateGardenSpaceForm.append('PlanStartDate', document.getElementById('update_garden_space_plan_start_date').value);
+    updateGardenSpaceForm.append('PlanEndDate', document.getElementById('update_garden_space_plan_end_date').value);
+    updateGardenSpaceForm.append('StartDate', document.getElementById('update_garden_space_start_date').value);
+    updateGardenSpaceForm.append('EndDate', document.getElementById('update_garden_space_end_date').value);
+    updateGardenSpaceForm.append('IsPrivate', document.getElementById('update_garden_space_isprivate').checked);
+    updateGardenSpaceForm.append('OnlyInvite', document.getElementById('update_garden_space_onlyInvite').checked);
+    updateGardenSpaceForm.append('CreatorId', document.getElementById('update_garden_space_creator').value);
+    updateGardenSpaceForm.append('CreateDate', document.getElementById('update_garden_space_createDate').value);
+    updateGardenSpaceForm.append('Color', document.getElementById('update_garden_space_color').value);
+
+    return updateGardenSpaceForm;
 }
 
 //GardenSpace - 워크스페이스 수정
