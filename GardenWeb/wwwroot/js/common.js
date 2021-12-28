@@ -23,6 +23,7 @@ function SetCookie(cookieName, cookieValue) {
     //cookieText += (cookiePath ? '; PATH' : '');
     //cookieText += (cookieDomain ? '; DOMAIN': '');
     //cookieText += (cookieSecure ? '; SECURE' : '');
+    console.log("trus");
     document.cookie = cookieText;
 }
 
@@ -67,6 +68,7 @@ async function MovePage(url) {
     //if (await CheckAccessPermission() == true) {
     //    //location.href = url;
     //}
+    console.log(url);
     location.href = url;
 }
 
