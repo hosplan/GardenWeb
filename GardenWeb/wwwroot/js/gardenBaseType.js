@@ -346,7 +346,6 @@ async function RenderBranchTypeUpdateModal(id) {
 }
 
 
-
 //baseBranchType - 생성 모달창 그리기
 function RenderBranchCreateModal() {
     document.getElementById('garden_basetype_title').innerHTML = 'BaseBranchType 생성';

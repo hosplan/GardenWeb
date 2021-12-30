@@ -9,14 +9,14 @@ function defaultHost() {
 //baseType host 주소
 function baseTypeHost() {
     return {
-        url:'https://localhost:49155'
+        url:'https://localhost:49153'
     }
 }
 
 //gardenSpace host 주소
 function gardenSpaceHost() {
     return {
-        url: 'https://localhost:49153'
+        url: 'https://localhost:49157'
     }
 }
  

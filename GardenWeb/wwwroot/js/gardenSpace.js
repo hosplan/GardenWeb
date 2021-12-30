@@ -83,6 +83,38 @@ async function GetGardenSpaceDetail() {
     RenderSpaceDetail(await GetGardenInfo());
 }
 
+//GardenSpace - 초대 현황 열기
+async function RenderUserInviteModal() {
+    //모달 타이틀
+    let modalTitle = '<i class="bi bi-plus-circle-fill text-primary me-2"></i>';
+    modalTitle += '유저 초대하기';
+    document.getElementById('garden_space_modal_title').innerHTML = modalTitle;
+    
+    //이름
+    let modalBody = '<div class="mb-3 row">';
+    modalBody += '<div class="col-sm-12 col-xl-6 p-2 border" style="min-height:500px;">';
+    modalBody += '<div class="card text-white bg-primary">';
+    modalBody += '<div class="card-header">Header</div>';
+    modalBody += '<div class="card-body">';
+    modalBody += '<h5 class="card-title">Primary card title</h5>';
+    modalBody += '<p class="card-text">Some quick example text to build on the card title and make up the bulk of the cards content</p>';
+    modalBody += '</div>';
+    modalBody += '</div>';
+    modalBody += '</div>';
+    modalBody += '<div class="col-sm-12 col-xl-6 p-2 border" style="min-height:500px;">';
+
+    modalBody += '</div>';
+    modalBody += '</div>';
+
+   
+
+    document.getElementById('modal_body').innerHTML = modalBody;
+    let modalFooter = '<button type="button" class="btn btn-secondary fw-bold" data-bs-dismiss="modal">닫기</button>';
+    modalFooter += '<button type="button" class="btn btn-primary fw-bold" onclick="UpdateGardenSpace()" data-bs-dismiss="modal">초대장 보내기</button>';
+
+    document.getElementById('modal_footer').innerHTML = modalFooter;
+}
+
 //GardenSpace - 워크스페이스 수정창 열기
 async function RenderUpdateSpaceModal() {
     let data = await GetGardenInfo();
